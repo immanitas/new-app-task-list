@@ -1,11 +1,11 @@
-import AppBar from '@mui/material/AppBar';
-import Typography from '@mui/material/Typography';
-import Toolbar from '@mui/material/Toolbar';
-import Box from '@mui/material/Box';
-import IconButton from '@mui/material/IconButton'
 import MenuIcon from '@mui/icons-material/Menu';
-import { HeaderProps } from './HeaderProps';
 import MenuOpenIcon from '@mui/icons-material/MenuOpen';
+import AppBar from '@mui/material/AppBar';
+import Box from '@mui/material/Box';
+import IconButton from '@mui/material/IconButton';
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
+import { HeaderProps } from './HeaderProps';
 
 export const Header: React.FC<HeaderProps> = ({isMenuOpen, onDrawerClick}) => {
   return (

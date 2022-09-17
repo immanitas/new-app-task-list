@@ -1,17 +1,11 @@
-import { Typography } from "@mui/material"
 import React, { useEffect, useState } from "react"
 import { GenericContainer } from "../../components/generic-container/GenericContainer"
 import { PageTitle } from "../../components/titles/PageTitle"
-
-interface Task {
-  id: number,
-  text: string,
-  completed: boolean
-}
+import { Task } from "../../components/task-list/Task"
+import { TaskList } from "../../components/task-list/TaskList"
 
 export const TaskContainer: React.FC<{}> = () => {
   const [data, setData] = useState<Task[]>([])
-  const [tasks, setTasks] = useState<React.ReactNode[]>([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -33,22 +27,10 @@ export const TaskContainer: React.FC<{}> = () => {
     fetchData();
   }, [])
 
-  useEffect(() => {
-    setTasks(data.map(element => {
-      return (
-        <li key={element.id}>
-          {element.text} - {element.completed ? 'completed' : 'not completed'}
-        </li>
-      )
-    }))
-  }, [data]);
-
   return (
     <GenericContainer>
       <PageTitle value="Task List" />
-      <ul>
-        {tasks}
-      </ul>
+      <TaskList tasks={data} />
     </GenericContainer>
   )
 }
